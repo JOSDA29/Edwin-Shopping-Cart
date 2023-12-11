@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarpiShop</title>
+    <title>JosdaShop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -51,7 +51,17 @@
         </aside>
 
         <main>
-            <h2 id="title-principal" class="title-principal">All the products</h2>
+            <div class="container-filters">
+                <h2 id="title-principal" class="title-principal">All the products</h2>
+                <div class="filters">
+                    <input class="search" type="search">
+                    <button class="btn-search">Search</button>
+                    <button class="btn-ascending"><i class="bi bi-arrow-down"></i></i></button>
+                    <button class="btn-descending"><i class="bi bi-arrow-down"></i></i></button>
+                    <button class="btn-reload"><i class="bi bi-arrow-counterclockwise"></i></button>
+                </div>
+            </div>
+            
             <div id="container-products" class="container-products">
             </div>
         </main>

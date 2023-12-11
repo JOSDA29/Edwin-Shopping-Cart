@@ -492,6 +492,47 @@ const titlePrincipal = document.querySelector("#title-principal");
 let btnsAdd = document.querySelectorAll(".product-add")
 const numberCart = document.querySelector("#number-cart");
 
+let currentSort = ''; 
+let productsAscending = []; 
+let productsDescending = []; 
+const btnAscending = document.querySelector(".btn-ascending");
+const btnDescending = document.querySelector(".btn-descending");
+const btnReload = document.querySelector(".btn-reload");
+
+const btnSearch = document.querySelector(".btn-search");
+const inputSearch = document.querySelector("input[type='search']");
+
+btnSearch.addEventListener("click", () => {
+  const searchTerm = inputSearch.value.toLowerCase();
+  const filteredMangas = mangas.filter(manga => {
+    return manga.productTitle.toLowerCase().includes(searchTerm) || manga.productTitle.toLowerCase().includes(searchTerm);
+  });
+
+  if (filteredMangas.length > 0) {
+    loadProducts(filteredMangas);
+  } else {
+    containerProducts.innerHTML = "<p>No se encontraron resultados.</p>";
+  }
+});
+
+btnAscending.addEventListener("click", () => {
+  if (currentSort !== 'ascending') {
+    currentSort = 'ascending';
+    loadProducts(productsAscending);
+  }
+});
+
+btnDescending.addEventListener("click", () => {
+  if (currentSort !== 'descending') {
+    currentSort = 'descending';
+    loadProducts(productsDescending);
+  }
+});
+
+btnReload.addEventListener("click", () => {
+  currentSort = '';
+  loadProducts(mangas);
+});
 function loadProducts(chosenProducts) {
   containerProducts.innerHTML = "";
 
@@ -508,7 +549,8 @@ function loadProducts(chosenProducts) {
     `;
 
     containerProducts.append(div);
-
+    productsAscending = chosenProducts.slice().sort((a, b) => b.productPrice - a.productPrice);
+    productsDescending = chosenProducts.slice().sort((a, b) => a.productPrice - b.productPrice);
   })
 
   updateBtnsAdd();

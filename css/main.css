@@ -133,7 +133,36 @@ main {
 
 .title-principal {
     color: var(--clr-main);
-    margin-bottom: 2rem;
+}
+
+.container-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filters button {
+    border: 0;
+    background-color: var(--clr-main);
+    padding: 1rem;
+    margin: 0 0.2rem;
+    color: var(--clr-white);
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.btn-ascending {
+    transform: rotateZ(180deg);
+}
+
+.search {
+    padding: .8rem;
+    margin: 0 0.2rem;
+    width: 20rem;
+    border-radius: 1rem;
+    border: 2px solid var(--clr-main);
 }
 
 .container-products {
@@ -271,3 +300,4 @@ main {
 .disabled {
     display: none;
 }
+
